@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+<head>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+  <script src="minesweeperController.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.14.3/ui-bootstrap-tpls.js"></script>
+  <link rel="stylesheet" href="main.css">
+
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>MineSweep</h1>
+    <hr>
+    <div class="container" ng-controller="MinesweeperController">
+      <button type="button" class="btn btn-default" ng-click="setCoverAll(false)">unhide all</button>
+      <button type="button" class="btn btn-default" ng-click="setCoverAll(true)">hide all</button>
+      <button type="button" class="btn btn-default" ng-click="setup()">New Game</button>
+      <hr>
+      <div class="btn-group">
+        <label class="btn btn-primary" ng-model="numMine" uib-btn-radio="5" ng-click="setup()">5 mines</label>
+        <label class="btn btn-primary" ng-model="numMine" uib-btn-radio="10" ng-click="setup()">10 mines</label>
+        <label class="btn btn-primary" ng-model="numMine" uib-btn-radio="15" ng-click="setup()">15 mines</label>
+      </div>
+      <hr>
+      <table ng-class="result">
+        <tr class="minefield" ng-repeat="row in minefield.rows">
+          <td ng-repeat="spot in row.spots" ng-click="unCover(spot)" ng-right-click="changeSign(spot)">
+            <img ng-src="{{getSpotImg(spot)}}">
+          </td>
+        </tr>
+      </table>
+      <h1 id="result" ng-if="result != ''" ng-class="result">{{result}}</h1>
+
+      <h1>{{numSigned}} sign on {{numMine}} mines</h1>
+    </div>
+  </div>
+</body>
+
+</html>
