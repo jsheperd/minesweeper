@@ -30,8 +30,8 @@
 
       </div>
     </div>
-    <div class="container well col-md-6">
-      <table ng-class="result">
+    <div class="col-md-6">
+      <table class="well" ng-class="result">
         <tr class="minefield" ng-repeat="row in minefield.rows">
           <td ng-repeat="spot in row.spots" ng-click="unCover(spot)" ng-right-click="changeSign(spot)">
             <img ng-src="{{getSpotImg(spot)}}">
