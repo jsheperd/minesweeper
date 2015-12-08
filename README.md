@@ -1,0 +1,2 @@
+# minesweeper
+Angular learning project
