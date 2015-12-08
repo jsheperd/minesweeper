@@ -22,3 +22,17 @@
 .Loose tr td img {
   opacity: 0.2;
 }
+
+@media (min-width: 700px) {
+
+  img {
+    width: 40px;
+    height: 40px;
+  }
+  
+  td {
+    
+    width: 40px; 
+    height: 40px;
+  }
+}
